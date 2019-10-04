@@ -29,9 +29,27 @@ class Animal
       $1, $2, $3, $4, $5, $6
     )
     RETURNING id"
-    values = [@age, @species, @admission_date, @is_adoptable, @owner_id]
+    values = [@name, @age, @species, @admission_date, @is_adoptable, @owner_id]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
+  end
+
+  def owner()
+    sql = ""
+  end
+
+  def self.all()
+    sql = "SELECT * FROM animals"
+    results = SqlRunner.run( sql )
+    return results.map { |animal| Animal.new( animal )  }
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM animals
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return Animal.new( results.first )
   end
 
   def self.delete_all

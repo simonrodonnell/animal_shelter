@@ -1,0 +1,22 @@
+<h1>All Animals</h1>
+
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Species</th>
+      <th>Admission date</th>
+      <th>Ready for adoption?</th>
+      <th>Owner</th>
+    </tr>
+    <% for animal in @animals %>
+    <tr>
+      <td><a href="/animals/<%= animal.id %>"><%= animal.name %></a></td>
+      <td><%= animal.age %></td>
+      <td><%= animal.species %></td>
+      <td><%= animal.admission_date %></td>
+      <td><%= animal.is_adoptable %></td>
+      <td><%= animal.owner.pretty_name %></td>
+    </tr>
+    <% end %>
+</table>
