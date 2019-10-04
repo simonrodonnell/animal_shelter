@@ -16,7 +16,7 @@
       <td><%= animal.species %></td>
       <td><%= animal.admission_date %></td>
       <td><%= animal.is_adoptable %></td>
-      <td><%= animal.owner.pretty_name %></td>
+      <td><%= animal.owner()[0].pretty_name %></td>
     </tr>
     <% end %>
 </table>

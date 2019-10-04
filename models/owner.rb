@@ -1,4 +1,5 @@
 require_relative("../db/sql_runner")
+require_relative("./animal")
 
 class Owner
 
@@ -11,8 +12,7 @@ class Owner
   end
 
   def pretty_name()
-    return "#{first_name.capitalize} #{last_name.capitalize}"
-
+    return "#{@first_name.capitalize} #{@last_name.capitalize}"
   end
 
   def save()
@@ -38,7 +38,7 @@ class Owner
     WHERE animals.owner_id = $1"
     values = [@id]
     results = SqlRunner.run(sql, values)
-    return results.map { |owner| Animal.new (animal)  }
+    return results.map { |animal| Animal.new (animal)  }
   end
 
   def self.all()
