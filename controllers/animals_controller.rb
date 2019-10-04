@@ -8,3 +8,8 @@ get "/animals" do
   @animals = Animal.all()
   erb( :"animals/index" )
 end
+
+get "/animals/:id" do
+  @animal = Animal.find(params['id'])
+  erb( :"animals/show" )
+end

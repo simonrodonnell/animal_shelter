@@ -5,7 +5,11 @@ require_relative("../models/animal")
 also_reload("../models/*")
 
 get "/owners" do
-  "Hello World!"
-  # @owners = Owner.all()
-  # erb( :"owners/index" )
+  @owners = Owner.all()
+  erb( :"owners/index" )
+end
+
+get "/owners/:id" do
+  @owner = Owner.find(params['id'])
+  erb( :"owners/show" )
 end
