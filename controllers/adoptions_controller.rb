@@ -8,9 +8,25 @@ also_reload("../models/*")
 
 #index
 get "/adoptions" do
-  # "Hello World!"
   @adoptions = Adoption.all()
   erb( :"adoptions/index" )
+end
+
+get '/adoptions/assign' do
+  @owners = Owner.all
+  @animals = Animal.all
+  erb(:"adoptions/assign")
+end
+
+post '/adoptions/assign' do
+  new_owner_id = params['owner_id'].to_i
+  new_animal_id = params['animal_id'].to_i
+  new_adoption = Adoption.new({
+    "animal_id" => new_animal_id,
+    "owner_id" => new_owner_id
+    })
+  new_adoption.save()
+  redirect to "/adoptions"
 end
 
 #delete
