@@ -4,7 +4,6 @@ require_relative("./owner")
 class Animal
 
   attr_reader(:id, :name, :age, :species, :admission_date, :is_adoptable)
-  attr_accessor(:owner_id)
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
@@ -13,7 +12,6 @@ class Animal
     @species = options['species']
     @admission_date = options['admission_date']
     @is_adoptable = options['is_adoptable']
-    @owner_id = options['owner_id'].to_i
   end
 
   def save()
@@ -23,28 +21,27 @@ class Animal
       age,
       species,
       admission_date,
-      is_adoptable,
-      owner_id
+      is_adoptable
     )
     VALUES
     (
-      $1, $2, $3, $4, $5, $6
+      $1, $2, $3, $4, $5
     )
     RETURNING id"
-    values = [@name, @age, @species, @admission_date, @is_adoptable, @owner_id]
+    values = [@name, @age, @species, @admission_date, @is_adoptable]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
 
-  def owner()
-    sql = "SELECT owners.* FROM animals
-    INNER JOIN owners
-    ON owners.id = animals.owner_id
-    WHERE owners.id = $1"
-    values = [@owner_id]
-    results = SqlRunner.run(sql, values)
-    return results.map { |owner| Owner.new (owner)  }
-  end
+  # def owner()
+  #   sql = "SELECT owners.* FROM animals
+  #   INNER JOIN owners
+  #   ON owners.id = animals.owner_id
+  #   WHERE owners.id = $1"
+  #   values = [@owner_id]
+  #   results = SqlRunner.run(sql, values)
+  #   return results.map { |owner| Owner.new (owner)  }
+  # end
 
   def update()
     sql = "UPDATE animals
@@ -55,13 +52,20 @@ class Animal
       species,
       admission_date,
       is_adoptable,
-      owner_id
     ) =
     (
-      $1, $2, $3, $4, $5, $6
+      $1, $2, $3, $4, $5
     )
-    WHERE id = $7"
-    values = [@name, @age, @species, @admission_date, @is_adoptable, @owner_id, @id]
+    WHERE id = $6"
+    values = [@name, @age, @species, @admission_date, @is_adoptable, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    sql = "DELETE FROM
+    animals
+    WHERE id = $1"
+    values = [@id]
     SqlRunner.run(sql, values)
   end
 
@@ -77,6 +81,14 @@ class Animal
     values = [id]
     results = SqlRunner.run( sql, values )
     return Animal.new( results.first )
+  end
+
+  def self.delete( id )
+    sql = "DELETE FROM
+    animals
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run(sql, values)
   end
 
   def self.delete_all

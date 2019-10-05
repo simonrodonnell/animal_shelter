@@ -3,5 +3,10 @@
 <p>Species: <%= @animal.species %></p>
 <p>Admitted: <%= @animal.admission_date %></p>
 <p>Ready for adoption?: <%= @animal.is_adoptable %></p>
+<p>Test: <%= @adoption_status %></p>
+
 <p>Owner: <%= @animal.owner.first.pretty_name %></p>
-<a href="/animals/<%= @animal.id %>/assign">Assign an Owner</a>
+<button type="button" name="button"><a href="/animals/<%= @animal.id %>/assign">ASSIGN OWNER</a></button>
+<button type="button" name="button"><a href="">DELETE</a></button>
+<button type="button" name="button"><a href="">EDIT</a></button>
+<span class="<%= @adoption_status %>"></span>

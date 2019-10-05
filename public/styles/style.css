@@ -1,5 +1,4 @@
 body {
-  /* color:  ; */
   font-family: "Helvetica Neue";
   background-color: #EBF1FA;
   /* background-image: url("/images/background_paws.png"); */
@@ -37,7 +36,6 @@ li a:hover {
 
 table {
   font-size: 12px;
-  /* border-collapse: separate; */
   border-spacing: 50px 0;
   text-align: center;
   background-color: white;
@@ -51,10 +49,24 @@ table {
 }
 
 .homepage-image {
-  /* width: auto; */
   display: block;
   margin-left: auto;
   margin-right: auto;
   height: 150px;
   border-radius: 10px;
+}
+
+.adoption_yes {
+  height: 20px;
+  width: 20px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+}
+.adoption_no {
+  height: 20px;
+  width: 20px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
 }

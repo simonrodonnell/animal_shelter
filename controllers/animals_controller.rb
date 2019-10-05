@@ -12,6 +12,8 @@ end
 
 get "/animals/:id" do
   @animal = Animal.find(params['id'])
+  @adoption_status = "adoption_yes" if @animal.is_adoptable == true
+  @adoption_status = "adoption_no" if @animal.is_adoptable != true
   erb( :"animals/show" )
 end
 
