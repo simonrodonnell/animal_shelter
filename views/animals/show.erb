@@ -1,7 +1,7 @@
 <h1><%= @animal.name %></h1>
-<h3>Age: <%= @animal.age %></h3>
-<h3>Species: <%= @animal.species %></h3>
-<h3>Admitted: <%= @animal.admission_date %></h3>
-<h3>Ready for adoption?: <%= @animal.is_adoptable %></h3>
-<h3>Owner: <%= @animal.owner.first.pretty_name %></h3>
+<p>Age: <%= @animal.age %></p>
+<p>Species: <%= @animal.species %></p>
+<p>Admitted: <%= @animal.admission_date %></p>
+<p>Ready for adoption?: <%= @animal.is_adoptable %></p>
+<p>Owner: <%= @animal.owner.first.pretty_name %></p>
 <a href="/animals/<%= @animal.id %>/assign">Assign an Owner</a>

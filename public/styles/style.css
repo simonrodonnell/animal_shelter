@@ -1,0 +1,60 @@
+body {
+  /* color:  ; */
+  font-family: "Helvetica Neue";
+  background-color: #EBF1FA;
+  /* background-image: url("/images/background_paws.png"); */
+}
+
+h1 {
+  text-align: center;
+  background-color: white;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #798674;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #606B5C;
+}
+
+table {
+  font-size: 12px;
+  /* border-collapse: separate; */
+  border-spacing: 50px 0;
+  text-align: center;
+  background-color: white;
+  border: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-text {
+  text-align: center;
+}
+
+.homepage-image {
+  /* width: auto; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 150px;
+  border-radius: 10px;
+}

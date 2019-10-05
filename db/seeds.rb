@@ -1,6 +1,5 @@
 require_relative("../models/owner.rb")
 require_relative("../models/animal.rb")
-
 require("pry")
 
 #delete_all
