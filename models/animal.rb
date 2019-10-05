@@ -3,13 +3,14 @@ require_relative("./owner")
 
 class Animal
 
-  attr_reader(:id, :name, :age, :species, :admission_date, :is_adoptable, :owner_id)
+  attr_reader(:id, :name, :age, :species, :admission_date, :is_adoptable)
+  attr_accessor(:owner_id)
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @age = options['age']
-    @species = options['type']
+    @species = options['species']
     @admission_date = options['admission_date']
     @is_adoptable = options['is_adoptable']
     @owner_id = options['owner_id'].to_i
@@ -43,6 +44,25 @@ class Animal
     values = [@owner_id]
     results = SqlRunner.run(sql, values)
     return results.map { |owner| Owner.new (owner)  }
+  end
+
+  def update()
+    sql = "UPDATE animals
+    SET
+    (
+      name,
+      age,
+      species,
+      admission_date,
+      is_adoptable,
+      owner_id
+    ) =
+    (
+      $1, $2, $3, $4, $5, $6
+    )
+    WHERE id = $7"
+    values = [@name, @age, @species, @admission_date, @is_adoptable, @owner_id, @id]
+    SqlRunner.run(sql, values)
   end
 
   def self.all()
