@@ -1,0 +1,14 @@
+<h3>Assign an animal to <%= @owner.pretty_name %></h3>
+
+<form action="/owners/<%= @owner.id %>/assign" method="post">
+  <label>
+    Select animal:
+    <select name="animal_id">
+      <% for animal in @animals %>
+      <option value="<%= animal.id %>"><%= animal.name %></option>
+      <% end %>
+    </select>
+
+    <input type="submit"  value="Assign">
+
+</form>

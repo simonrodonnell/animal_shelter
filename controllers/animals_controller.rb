@@ -3,6 +3,7 @@
 require("pry")
 require_relative("../models/animal")
 require_relative("../models/owner")
+require_relative("../models/adoption")
 also_reload("../models/*")
 
 get "/animals" do
@@ -12,8 +13,6 @@ end
 
 get "/animals/:id" do
   @animal = Animal.find(params['id'])
-  @adoption_status = "adoption_yes" if @animal.is_adoptable == true
-  @adoption_status = "adoption_no" if @animal.is_adoptable != true
   erb( :"animals/show" )
 end
 
@@ -25,9 +24,11 @@ end
 
 post "/animals/:id/assign" do
   new_owner_id = params['owner_id'].to_i
-  animal = Animal.find(params['id'])
-    # binding.pry
-  animal.owner_id = new_owner_id
-  animal.update
+  new_animal_id = params['id'].to_i
+  new_adoption = Adoption.new({
+    "animal_id" => new_animal_id,
+    "owner_id" => new_owner_id
+    })
+  new_adoption.save()
   redirect to "/animals/#{params['id']}"
 end

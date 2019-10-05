@@ -3,7 +3,7 @@ require_relative("./animal")
 
 class Owner
 
-  attr_reader(:id, :first_name, :last_name)
+  attr_reader(:id, :first_name, :last_name, :age, :address)
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
@@ -34,16 +34,16 @@ class Owner
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
-  # 
-  # def animals()
-  #   sql = "SELECT animals.* FROM owners
-  #   INNER JOIN animals
-  #   ON owners.id = animals.owner_id
-  #   WHERE animals.owner_id = $1"
-  #   values = [@id]
-  #   results = SqlRunner.run(sql, values)
-  #   return results.map { |animal| Animal.new (animal)  }
-  # end
+
+  def animal()
+    sql = "SELECT animals.* FROM adoptions
+    INNER JOIN animals
+    ON animals.id = adoptions.animal_id
+    WHERE adoptions.owner_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |animal| Animal.new (animal)  }
+  end
 
   def delete()
     sql = "DELETE FROM owners

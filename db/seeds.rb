@@ -14,25 +14,25 @@ owner1 = Owner.new({
   "first_name" => "Andrew",
   "last_name" => "Ridgley",
   "age" => 25,
-  "Address" => "Club Tropicana"
+  "address" => "Club Tropicana"
   })
 owner2 = Owner.new({
   "first_name" => "Simon",
   "last_name" => "LeBon",
   "age" => 28,
-  "Address" => "Reflextown"
+  "address" => "Reflextown"
   })
 owner3 = Owner.new({
   "first_name" => "John",
   "last_name" => "Lennon",
   "age" => 40,
-  "Address" => "Abbey Road"
+  "address" => "Abbey Road"
   })
 owner4 = Owner.new({
   "first_name" => "Boy",
   "last_name" => "George",
   "age" => 23,
-  "Address" => "The 80s"
+  "address" => "The 80s"
   })
 owner1.save()
 owner2.save()
@@ -52,14 +52,14 @@ animal2 = Animal.new({
   "age" => 5,
   "species" => "Dog",
   "admission_date" => "13/09/18",
-  "is_adoptable" => false
+  "is_adoptable" => true
   })
 animal3 = Animal.new({
   "name" => "Rita",
   "age" => 1,
   "species" => "Parrot",
   "admission_date" => "16/05/17",
-  "is_adoptable" => true
+  "is_adoptable" => false
   })
 animal4 = Animal.new({
   "name" => "Hans",

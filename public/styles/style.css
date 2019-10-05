@@ -6,7 +6,6 @@ body {
 
 h1 {
   text-align: center;
-  background-color: white;
 }
 
 
@@ -38,7 +37,6 @@ table {
   font-size: 12px;
   border-spacing: 50px 0;
   text-align: center;
-  background-color: white;
   border: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -56,16 +54,16 @@ table {
   border-radius: 10px;
 }
 
-.adoption_yes {
-  height: 20px;
-  width: 20px;
+.t {
+  height: 10px;
+  width: 10px;
   background-color: green;
   border-radius: 50%;
   display: inline-block;
 }
-.adoption_no {
-  height: 20px;
-  width: 20px;
+.f {
+  height: 10px;
+  width: 10px;
   background-color: red;
   border-radius: 50%;
   display: inline-block;

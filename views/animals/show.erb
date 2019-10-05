@@ -1,12 +1,20 @@
-<h1><%= @animal.name %></h1>
-<p>Age: <%= @animal.age %></p>
-<p>Species: <%= @animal.species %></p>
-<p>Admitted: <%= @animal.admission_date %></p>
-<p>Ready for adoption?: <%= @animal.is_adoptable %></p>
-<p>Test: <%= @adoption_status %></p>
+<h3><%= @animal.name %></h3>
+<p>
+  Age: <%= @animal.age %>
+</p>
+<p>
+  Species: <%= @animal.species %>
+</p>
+<p>
+  Admitted: <%= @animal.admission_date %>
+</p>
+<p>
+  Ready for adoption?:
+  <span class="<%= @animal.is_adoptable.to_s %>">
+  </span>
+</p>
 
-<p>Owner: <%= @animal.owner.first.pretty_name %></p>
+
 <button type="button" name="button"><a href="/animals/<%= @animal.id %>/assign">ASSIGN OWNER</a></button>
 <button type="button" name="button"><a href="">DELETE</a></button>
 <button type="button" name="button"><a href="">EDIT</a></button>
-<span class="<%= @adoption_status %>"></span>

@@ -7,7 +7,6 @@
       <th>Species</th>
       <th>Admission date</th>
       <th>Ready for adoption?</th>
-      <th>Owner</th>
     </tr>
     <% for animal in @animals %>
     <tr>
@@ -15,10 +14,8 @@
       <td><%= animal.age %></td>
       <td><%= animal.species %></td>
       <td><%= animal.admission_date %></td>
-      <td><%= animal.is_adoptable %></td>
-      <td><%= animal.owner()[0].pretty_name %></td>
       <td>
-        <span class="adoption_no"></span>
+        <span class="<%= animal.is_adoptable.to_s %>"></span>
       </td>
     </tr>
     <% end %>

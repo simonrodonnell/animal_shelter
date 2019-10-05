@@ -1,0 +1,15 @@
+<h1>Adoptions</h1>
+
+<table>
+    <tr>
+      <th>Owner</th>
+      <th>Animal</th>
+    </tr>
+    <% for adoption in @adoptions %>
+    <tr>
+      <td><%= adoption.owner.pretty_name %></td>
+      <td><%= adoption.animal.name %></td>
+      <td></td>
+    </tr>
+    <% end %>
+</table>

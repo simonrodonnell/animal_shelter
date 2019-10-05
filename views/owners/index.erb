@@ -3,12 +3,16 @@
 <table>
     <tr>
       <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
       <th>Animal</th>
     </tr>
     <% for owner in @owners %>
     <tr>
       <td><a href="/owners/<%= owner.id %>"><%= owner.pretty_name %></a></td>
-      <td><%=  owner.animals().first if owner.animals().empty? == false %></td>
+      <td><%= owner.age %></td>
+      <td><%= owner.address %></td>
+      <td></td>
     </tr>
     <% end %>
 </table>

@@ -33,15 +33,15 @@ class Animal
     @id = results.first()['id'].to_i
   end
 
-  # def owner()
-  #   sql = "SELECT owners.* FROM animals
-  #   INNER JOIN owners
-  #   ON owners.id = animals.owner_id
-  #   WHERE owners.id = $1"
-  #   values = [@owner_id]
-  #   results = SqlRunner.run(sql, values)
-  #   return results.map { |owner| Owner.new (owner)  }
-  # end
+  def owner()
+    sql = "SELECT owners.* FROM adoptions
+    INNER JOIN owners
+    ON owners.id = adoptions.owner_id
+    WHERE adoptions.animal_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |owner| Owner.new (owner)  }
+  end
 
   def update()
     sql = "UPDATE animals
