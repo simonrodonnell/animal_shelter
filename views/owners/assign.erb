@@ -1,7 +1,7 @@
+<div class="form">
 <h3>Assign an animal to <%= @owner.pretty_name %></h3>
-
 <form action="/owners/<%= @owner.id %>/assign" method="post">
-  <label>
+
     Select animal:
     <select name="animal_id">
       <% for animal in @animals %>
@@ -10,5 +10,5 @@
     </select>
 
     <input type="submit"  value="Assign">
-
-</form>
+  </form>
+</div>

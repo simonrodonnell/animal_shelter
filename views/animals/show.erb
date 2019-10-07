@@ -1,20 +1,27 @@
-<h3><%= @animal.name %></h3>
-<p>
-  Age: <%= @animal.age %>
-</p>
-<p>
-  Species: <%= @animal.species %>
-</p>
-<p>
-  Admitted: <%= @animal.admission_date %>
-</p>
-<p>
-  Ready for adoption?:
-  <span class="<%= @animal.is_adoptable.to_s %>">
-  </span>
-</p>
+<p></p>
+<p></p>
+<p></p>
+<div class="animal-card">
+  <h3><%= @animal.name %></h3>
+  <p>
+    Age: <%= @animal.age %>
+  </p>
+  <p>
+    Species: <%= @animal.species %>
+  </p>
+  <p>
+    Admitted: <%= @animal.admission_date %>
+  </p>
+  <p>
+    Ready for adoption?:
+    <span class="<%= @animal.is_adoptable.to_s %>">
+    </span>
+  </p>
 
+  <div class="card-buttons">
+    <button type="button" name="button"><a href="/animals/<%= @animal.id %>/assign">ASSIGN OWNER</a></button>
+    <button type="button" name="button"><a href="">EDIT</a></button>
+    <form action="/animals/<%= @animal.id %>/delete" method="POST"><input type="submit" value="DELETE"></form>
+  </div>
 
-<button type="button" name="button"><a href="/animals/<%= @animal.id %>/assign">ASSIGN OWNER</a></button>
-<button type="button" name="button"><a href="">DELETE</a></button>
-<button type="button" name="button"><a href="">EDIT</a></button>
+</div>

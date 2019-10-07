@@ -1,6 +1,3 @@
-# require("sinatra")
-# require("sinatra/contrib/all")
-require("pry")
 require_relative("../models/animal")
 require_relative("../models/owner")
 require_relative("../models/adoption")
@@ -14,7 +11,7 @@ end
 
 get '/adoptions/assign' do
   @owners = Owner.all
-  @animals = Animal.all
+  @animals = Animal.available
   erb(:"adoptions/assign")
 end
 
@@ -30,3 +27,7 @@ post '/adoptions/assign' do
 end
 
 #delete
+post '/adoptions/:id/delete' do
+  Adoption.delete(params[:id])
+  redirect to("/adoptions")
+end

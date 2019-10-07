@@ -1,15 +1,23 @@
 <h1>Adoptions</h1>
 
+<div class="index-nav"">
+  <button type="button" name="button"><a href="adoptions/assign">New Adoption</a></button>
+</div>
+
+<p></p>
+<p></p>
+<p></p>
+
 <table>
-    <tr>
-      <th>Owner</th>
-      <th>Animal</th>
-    </tr>
-    <% for adoption in @adoptions %>
-    <tr>
-      <td><%= adoption.owner.pretty_name %></td>
-      <td><%= adoption.animal.name %></td>
-      <td></td>
-    </tr>
-    <% end %>
+  <tr>
+    <th>Owner</th>
+    <th>Animal</th>
+  </tr>
+  <% for adoption in @adoptions %>
+  <tr>
+    <td><a href="/owners/<%= adoption.owner.id %>"><%= adoption.owner.pretty_name %></a></td>
+    <td><a href="/animals/<%= adoption.animal.id %>"><%= adoption.animal.name %></a></td>
+    <td></td>
+  </tr>
+  <% end %>
 </table>

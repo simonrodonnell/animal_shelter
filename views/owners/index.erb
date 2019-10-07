@@ -1,18 +1,29 @@
 <h1>Owners</h1>
 
+<div class="index-nav"">
+  <button type="button" name="button"><a href="owners/new">New Owner</a></button>
+</div>
+
 <table>
     <tr>
       <th>Name</th>
       <th>Age</th>
       <th>Address</th>
       <th>Animal</th>
+
     </tr>
     <% for owner in @owners %>
     <tr>
       <td><a href="/owners/<%= owner.id %>"><%= owner.pretty_name %></a></td>
       <td><%= owner.age %></td>
       <td><%= owner.address %></td>
-      <td></td>
+      <td>
+          <% if owner.animal.first.nil? == false %>
+          <%= owner.animal.first.name %>
+          <% else %>
+          <%= "No Animal"%>
+          <% end %>
+      </td>
     </tr>
     <% end %>
 </table>

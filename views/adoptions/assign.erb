@@ -1,20 +1,21 @@
+<div class="form">
 <h1>Adoption Form</h1>
-
 <form action="/adoptions/assign" method="post">
-  <label>
+
     Select owner:
     <select name="owner_id">
       <% for owner in @owners %>
       <option value="<%= owner.id %>"><%= owner.pretty_name %></option>
       <% end %>
     </select>
+    
     Select animal:
     <select name="animal_id">
       <% for animal in @animals %>
-      <option value="<%= animal.id %>"><%= animal.name %></option>
+      <option value="<%= animal.id %>"><%= animal.name %> / <%= animal.species %></option>
       <% end %>
     </select>
 
     <input type="submit"  value="Assign">
-
 </form>
+</div>

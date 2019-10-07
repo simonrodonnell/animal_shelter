@@ -1,6 +1,3 @@
-# require("sinatra")
-# require("sinatra/contrib/all")
-require("pry")
 require_relative("../models/animal")
 require_relative("../models/owner")
 require_relative("../models/adoption")
@@ -9,6 +6,11 @@ also_reload("../models/*")
 get "/animals" do
   @animals = Animal.all()
   erb( :"animals/index" )
+end
+
+#new
+get "/animals/new" do
+  erb(:"animals/new")
 end
 
 get "/animals/:id" do
@@ -32,3 +34,16 @@ post "/animals/:id/assign" do
   new_adoption.save()
   redirect to "/animals/#{params['id']}"
 end
+
+post '/animals/:id/delete' do
+  Animal.delete(params[:id])
+  redirect to("/animals")
+end
+
+#new
+post "/animals" do
+  Animal.new(params).save
+  redirect to '/animals'
+end
+
+#edit

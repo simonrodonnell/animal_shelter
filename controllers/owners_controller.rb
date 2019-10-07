@@ -1,5 +1,3 @@
-# require("sinatra")
-# require("sinatra/contrib/all")
 require_relative("../models/owner")
 require_relative("../models/animal")
 require_relative("../models/adoption")
@@ -10,13 +8,18 @@ get "/owners" do
   erb( :"owners/index" )
 end
 
+#new
+get "/owners/new" do
+  erb(:"owners/new")
+end
+
 get "/owners/:id" do
   @owner = Owner.find(params['id'])
   erb( :"owners/show" )
 end
 
 get "/owners/:id/assign" do
-  @animals = Animal.all
+  @animals = Animal.available() # what if nil?
   @owner = Owner.find(params['id'])
   erb(:"owners/assign")
 end
@@ -32,8 +35,17 @@ post "/owners/:id/assign" do
   redirect to "/owners/#{params['id']}"
 end
 
+
 #new
+post "/owners" do
+  Owner.new(params).save
+  redirect to '/owners'
+end
 
 #delete
+post '/owners/:id/delete' do
+  Owner.delete(params[:id])
+  redirect to("/owners")
+end
 
 #edit

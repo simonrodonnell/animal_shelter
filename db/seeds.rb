@@ -8,31 +8,30 @@ Adoption.delete_all()
 Animal.delete_all()
 Owner.delete_all()
 
-
 #create owners
 owner1 = Owner.new({
   "first_name" => "Andrew",
   "last_name" => "Ridgley",
   "age" => 25,
-  "address" => "Club Tropicana"
+  "address" => "106, Hounslow Rd"
   })
 owner2 = Owner.new({
   "first_name" => "Simon",
   "last_name" => "LeBon",
   "age" => 28,
-  "address" => "Reflextown"
+  "address" => "52, Hull Road"
   })
 owner3 = Owner.new({
-  "first_name" => "John",
-  "last_name" => "Lennon",
-  "age" => 40,
-  "address" => "Abbey Road"
+  "first_name" => "Rick",
+  "last_name" => "Astley",
+  "age" => 21,
+  "address" => "120, Thornton St"
   })
 owner4 = Owner.new({
   "first_name" => "Boy",
   "last_name" => "George",
   "age" => 23,
-  "address" => "The 80s"
+  "address" => "51, Well Lane"
   })
 owner1.save()
 owner2.save()
@@ -59,7 +58,7 @@ animal3 = Animal.new({
   "age" => 1,
   "species" => "Parrot",
   "admission_date" => "16/05/17",
-  "is_adoptable" => false
+  "is_adoptable" => true
   })
 animal4 = Animal.new({
   "name" => "Hans",

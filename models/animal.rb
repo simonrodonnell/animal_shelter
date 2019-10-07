@@ -75,6 +75,20 @@ class Animal
     return results.map { |animal| Animal.new( animal )  }
   end
 
+
+  def self.available_animals()
+    sql = "SELECT * FROM animals"
+    results = SqlRunner.run(sql)
+    return results.map { |adoption| Adoption.new( adoption ) if adoption.is_adoptable == true }
+  end
+
+  def self.available()
+    sql = "SELECT * FROM animals WHERE id NOT IN (SELECT animal_id FROM adoptions) AND is_adoptable = $1"
+    values = [true]
+    results = SqlRunner.run(sql, values)
+    return results.map { |animal| Animal.new( animal ) }
+  end
+
   def self.find( id )
     sql = "SELECT * FROM animals
     WHERE id = $1"

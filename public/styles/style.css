@@ -1,13 +1,16 @@
 body {
   font-family: "Helvetica Neue";
   background-color: #EBF1FA;
-  /* background-image: url("/images/background_paws.png"); */
+  background-image: url("/images/background_paws.png");
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-attachment: fixed;
+  background-position: bottom left;
 }
 
 h1 {
   text-align: center;
 }
-
 
 ul {
   list-style-type: none;
@@ -43,6 +46,7 @@ table {
 }
 
 .intro-text {
+  padding: 20px;
   text-align: center;
 }
 
@@ -52,6 +56,53 @@ table {
   margin-right: auto;
   height: 150px;
   border-radius: 10px;
+}
+
+/* .background-image {
+
+} */
+
+.form {
+  display: block;
+  background-color: #D6DAD5;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.index-nav {
+  text-align: center;
+  padding: 10 px;
+}
+
+.owner-card {
+  display: block;
+  background-color: #D6DAD5;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  padding: 10px;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 10px;
+}
+
+.animal-card {
+  display: block;
+  background-color: #D6DAD5;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  padding: 10px;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 10px;
+}
+
+.card-buttons {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .t {

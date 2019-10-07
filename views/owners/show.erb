@@ -1,13 +1,27 @@
-<h3><%= @owner.pretty_name %></h3>
-<p>
-  Age: <%= @owner.age %>
-</p>
-<p>
-  Address: <%= @owner.address %>
-</p>
-<p>
-  Animal: <%= @owner.animal[0].name %>
-</p>
-<button type="button" name="button"><a href="/owners/<%= @owner.id %>/assign">ASSIGN PET</a></button>
-<button type="button" name="button"><a href="">DELETE</a></button>
-<button type="button" name="button"><a href="">EDIT</a></button>
+<p></p>
+<p></p>
+<p></p>
+<div class="owner-card">
+  <h3><%= @owner.pretty_name %></h3>
+  <p>
+    Age: <%= @owner.age %>
+  </p>
+  <p>
+    Address: <%= @owner.address %>
+  </p>
+  <p>
+    Animal:
+    <% if @owner.animal.nil? == true %>
+    <%= @owner.animal.first.name %>
+    <% else %>
+    <%= "No Animal"%>
+    <% end %>
+  </p>
+
+  <div class="card-buttons">
+    <button type="button" name="button"><a href="/owners/<%= @owner.id %>/assign">ASSIGN PET</a></button>
+    <button type="button" name="button"><a href="">EDIT</a></button>
+    <form action="/owners/<%= @owner.id %>/delete" method="POST"><input type="submit" value="DELETE"></form>
+  </div>
+
+</div>
