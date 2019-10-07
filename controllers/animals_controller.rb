@@ -2,6 +2,7 @@ require_relative("../models/animal")
 require_relative("../models/owner")
 require_relative("../models/adoption")
 also_reload("../models/*")
+require("pry")
 
 get "/animals" do
   @animals = Animal.all()
@@ -38,6 +39,13 @@ end
 post '/animals/:id/delete' do
   Animal.delete(params[:id])
   redirect to("/animals")
+end
+
+post '/animals/:id/status' do
+  @animal = Animal.find(params[:id])
+  # binding.pry
+  @animal.status()
+  redirect to "/animals/#{params['id']}"
 end
 
 #new

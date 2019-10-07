@@ -3,6 +3,7 @@
 <p></p>
 <div class="card owner-card">
   <h3><%= @owner.pretty_name %></h3>
+  <hr>
   <p>
     Age: <%= @owner.age %>
   </p>
@@ -14,9 +15,10 @@
     <% if @owner.animal.nil? == true %>
     <%= @owner.animal.first.name %>
     <% else %>
-    <%= "No Animal"%>
+    <%= ""%>
     <% end %>
   </p>
+  <hr>
 
   <div class="card-buttons">
     <button type="button" name="button"><a href="/owners/<%= @owner.id %>/assign">ASSIGN PET</a></button>

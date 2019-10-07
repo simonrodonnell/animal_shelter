@@ -1,5 +1,6 @@
 require_relative("../db/sql_runner")
 require_relative("./owner")
+require("pry")
 
 class Animal
 
@@ -102,6 +103,21 @@ class Animal
     animals
     WHERE id = $1"
     values = [id]
+    SqlRunner.run(sql, values)
+  end
+
+  def status()
+    if @is_adoptable == "t"
+      sql = "UPDATE animals
+      SET is_adoptable = false
+      WHERE id = $1"
+    elsif @is_adoptable == "f"
+      sql = "UPDATE animals
+      SET is_adoptable = true
+      WHERE id = $1"
+    end
+    values = [@id]
+    # binding.pry
     SqlRunner.run(sql, values)
   end
 
