@@ -12,7 +12,7 @@ end
 
 #new
 get "/animals/new" do
-  @animal_types = ["Cat", "Dog", "Rabbit", "Frog", "Hamster", "Snake", "Parrot"]
+  @animal_types = ["Cat", "Dog", "Rabbit", "Frog", "Hamster", "Snake", "Parrot", "Tortoise"]
   erb(:"animals/new")
 end
 
@@ -29,7 +29,7 @@ get "/animals/not-ready" do
 end
 
 get "/animals/search" do
-  @animal_types = ["Cat", "Dog", "Rabbit", "Frog", "Hamster", "Snake", "Parrot"]
+  @animal_types = ["Cat", "Dog", "Rabbit", "Frog", "Hamster", "Snake", "Parrot", "Tortoise"]
   erb(:"animals/search")
 end
 
