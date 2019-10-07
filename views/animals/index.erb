@@ -17,6 +17,7 @@
       <th>Species</th>
       <th>Admission date</th>
       <th>Healthy/Trained</th>
+      <th>Owner</th>
     </tr>
     <% for animal in @animals %>
     <tr>
@@ -26,6 +27,13 @@
       <td><%= animal.admission_date %></td>
       <td>
         <span class="<%= animal.is_adoptable.to_s %>"></span>
+      </td>
+      <td>
+          <% if animal.owner.first.nil? == false %>
+          <%= animal.owner.first.pretty_name %>
+          <% else %>
+          <%= ""%>
+          <% end %>
       </td>
     </tr>
     <% end %>
