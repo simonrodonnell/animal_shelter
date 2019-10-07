@@ -8,7 +8,11 @@
 <input type="text" name="age" id="age"/>
 
 <label for="species">Species:</label>
-<input type="text" name="species" id="species"/>
+<select name="species" id="species">
+  <% for animal_type in @animal_types %>
+  <option value="<%= animal_type %>"><%= animal_type %></option>
+  <% end %>
+</select>
 
 <label for="admission_date">Date:</label>
 <input type="text" name="admission_date" id="admission_date"/>

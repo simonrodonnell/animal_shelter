@@ -10,15 +10,15 @@
 
 <table>
   <tr>
+    <th></th>
     <th>Owner</th>
     <th>Animal</th>
-    <th></th>
   </tr>
   <% for adoption in @adoptions %>
   <tr>
+    <td><a href="/adoptions/<%= adoption.id %>">VIEW</a></td>
     <td><a href="/owners/<%= adoption.owner.id %>"><%= adoption.owner.pretty_name %></a></td>
     <td><a href="/animals/<%= adoption.animal.id %>"><%= adoption.animal.name %></a></td>
-    <td><a href="/adoptions/<%= adoption.id %>">VIEW</a></td>
   </tr>
   <% end %>
 </table>

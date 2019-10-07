@@ -112,6 +112,14 @@ class Animal
     return Animal.new( results.first )
   end
 
+  def self.find_all_by_species( species )
+    sql = "SELECT * FROM animals
+    WHERE species = $1"
+    values = [species]
+    results = SqlRunner.run(sql, values)
+    return results.map { |animal| Animal.new( animal ) }
+  end
+
   def self.delete( id )
     sql = "DELETE FROM
     animals
