@@ -14,6 +14,18 @@ get "/animals/new" do
   erb(:"animals/new")
 end
 
+
+get "/animals/ready" do
+  @animals = Animal.ready()
+  erb( :"animals/index" )
+end
+
+get "/animals/not-ready" do
+  @animals = Animal.not_ready()
+  erb( :"animals/index" )
+end
+
+
 get "/animals/:id" do
   @animal = Animal.find(params['id'])
   erb( :"animals/show" )

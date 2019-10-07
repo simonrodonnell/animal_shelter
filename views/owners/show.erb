@@ -5,13 +5,13 @@
   <h3><%= @owner.pretty_name %></h3>
   <hr>
   <p>
-    Age: <%= @owner.age %>
+    <b>AGE: </b><%= @owner.age %>
   </p>
   <p>
-    Address: <%= @owner.address %>
+    <b>ADDRESS: </b><%= @owner.address %>
   </p>
   <p>
-    Animal:
+    <b>ANIMAL:</b>
     <% if @owner.animal.nil? == true %>
     <%= @owner.animal.first.name %>
     <% else %>

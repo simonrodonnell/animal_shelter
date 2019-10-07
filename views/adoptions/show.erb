@@ -1,16 +1,15 @@
 <p></p>
 <p></p>
 <p></p>
-<div class="owner-card">
+<div class="card adoption-card">
   <h3>Adoption #<%= @adoption.id %></h3>
   <hr>
-  <p>Animal: <%= @adoption.animal.name %></p>
-  <p>Age: <%= @adoption.animal.age %></p>
-  <p>Species: <%= @adoption.animal.species %></p>
-  <p>Adoptable?: <%= @adoption.animal.is_adoptable %></p>
+  <p><b>ANIMAL: </b><%= @adoption.animal.name %></p>
+  <p><b>SPECIES: </b><%= @adoption.animal.species %></p>
+  <p><b>AGE: </b><%= @adoption.animal.age %></p>
   <hr>
-  <p>Owner: <%= @adoption.owner.pretty_name %></p>
-  <p>Address: <%= @adoption.owner.address %></p>
+  <p><b>OWNER: </b><%= @adoption.owner.pretty_name %></p>
+  <p><b>ADDRESS: </b><%= @adoption.owner.address %></p>
   <hr>
 
   <div class="card-buttons">

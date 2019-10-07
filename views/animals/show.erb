@@ -5,16 +5,16 @@
   <h3><%= @animal.name %></h3>
   <hr>
   <p>
-    Age: <%= @animal.age %>
+    <b>SPECIES: </b><%= @animal.species %>
   </p>
   <p>
-    Species: <%= @animal.species %>
+    <b>AGE: </b><%= @animal.age %>
   </p>
   <p>
-    Admitted: <%= @animal.admission_date %>
+    <b>ADMITTED: </b><%= @animal.admission_date %>
   </p>
   <p>
-    Healthy/Trained:
+    <b>HEALTHY/TRAINED: </b>
     <span class="<%= @animal.is_adoptable.to_s %>">
     </span>
   </p>
