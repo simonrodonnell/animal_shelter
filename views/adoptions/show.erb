@@ -1,0 +1,21 @@
+<p></p>
+<p></p>
+<p></p>
+<div class="owner-card">
+  <h3>Adoption #<%= @adoption.id %></h3>
+  <p>Animal: <%= @adoption.animal.name %></p>
+  <p>Age: <%= @adoption.animal.age %></p>
+  <p>Species: <%= @adoption.animal.species %></p>
+  <p>Admission: <%= @adoption.animal.admission_date %></p>
+  <p>Adoptable?: <%= @adoption.animal.is_adoptable %></p>
+  <p>Owner: <%= @adoption.owner.pretty_name %></p>
+  <p>Age: <%= @adoption.owner.age %></p>
+  <p>Address: <%= @adoption.owner.address %></p>
+
+
+  <div class="card-buttons">
+    <form action="/adoptions/<%= @adoption.id %>/delete" method="POST"><input type="submit" value="DELETE"></form>
+  </div>
+
+
+</div>

@@ -1,7 +1,7 @@
 <p></p>
 <p></p>
 <p></p>
-<div class="animal-card">
+<div class="card animal-card">
   <h3><%= @animal.name %></h3>
   <p>
     Age: <%= @animal.age %>
@@ -13,7 +13,7 @@
     Admitted: <%= @animal.admission_date %>
   </p>
   <p>
-    Ready for adoption?:
+    Healthy/Trained:
     <span class="<%= @animal.is_adoptable.to_s %>">
     </span>
   </p>

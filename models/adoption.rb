@@ -49,6 +49,13 @@ class Adoption
     return results.map { |adoption| Adoption.new( adoption )  }
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM adoptions WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    return Adoption.new(results.first)
+  end
+
   def self.delete_all()
     sql = "DELETE FROM adoptions"
     SqlRunner.run( sql )
