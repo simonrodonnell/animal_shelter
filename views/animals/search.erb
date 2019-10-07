@@ -1,34 +1,9 @@
-<h1>ANIMALS</h1>
-<hr>
-<div class="index-nav"">
-  <button type="button" name="button 1"><a href="/animals/new">NEW ANIMAL</a></button>
-  <button type="button" name="button 2"><a href="/animals/ready">READY</a></button>
-  <button type="button" name="button 3"><a href="/animals/not-ready">NOT READY</a></button>
-  <form class="" action="/animals/Cat/search" method="post">
-    <input type="submit" value="Search"/>
-  </form>
-</div>
-
-<p></p>
-<p></p>
-<p></p>
-<table>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Species</th>
-      <th>Admission date</th>
-      <th>Healthy/Trained</th>
-    </tr>
-    <% for animal in @animals %>
-    <tr>
-      <td><a href="/animals/<%= animal.id %>"><%= animal.name %></a></td>
-      <td><%= animal.age %></td>
-      <td><%= animal.species %></td>
-      <td><%= animal.admission_date %></td>
-      <td>
-        <span class="<%= animal.is_adoptable.to_s %>"></span>
-      </td>
-    </tr>
+<form class="" action="/animals/search/results" method="post">
+  <label for="species">Search for species:</label>
+  <select name="species" id="species">
+    <% for animal_type in @animal_types %>
+    <option value="<%= animal_type %>"><%= animal_type %></option>
     <% end %>
-</table>
+  </select>
+  <input type="submit" value="SEARCH">
+</form>

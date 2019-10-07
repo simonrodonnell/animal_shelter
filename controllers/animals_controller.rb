@@ -28,13 +28,16 @@ get "/animals/not-ready" do
   erb( :"animals/index" )
 end
 
-#search by animal
-get "/animals/:species/search" do
-  @animals = Animal.find_all_by_species(params['species'])
-  binding.pry
-  erb( :"animals/search")
+get "/animals/search" do
+  @animal_types = ["Cat", "Dog", "Rabbit", "Frog", "Hamster", "Snake", "Parrot"]
+  erb(:"animals/search")
 end
 
+post "/animals/search/results" do
+  @animals = Animal.find_all_by_species(params['species'])
+  # binding.pry
+  erb( :"animals/index")
+end
 
 #show individual animal
 get "/animals/:id" do
