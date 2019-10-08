@@ -1,6 +1,7 @@
 DROP TABLE adoptions;
-DROP TABLE animals;
 DROP TABLE owners;
+DROP TABLE animals;
+DROP TABLE animal_types;
 
 CREATE TABLE owners
 (
@@ -11,14 +12,20 @@ CREATE TABLE owners
   address VARCHAR(255)
 );
 
+CREATE TABLE animal_types
+(
+  id SERIAL8 PRIMARY KEY,
+  species VARCHAR(255)
+);
+
 CREATE TABLE animals
 (
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
   age INT2,
-  species VARCHAR(255),
-  admission_date VARCHAR(255),
-  is_adoptable BOOLEAN
+  admission_date DATE,
+  is_adoptable BOOLEAN,
+  animal_type_id INT8 REFERENCES animal_types(id) ON DELETE CASCADE
 );
 
 CREATE TABLE adoptions
