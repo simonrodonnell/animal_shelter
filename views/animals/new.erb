@@ -7,15 +7,15 @@
 <label for="age">Age:</label>
 <input type="text" name="age" id="age"/>
 
-<label for="species">Species:</label>
-<select name="species" id="species">
+<label for="animal_type_id">Species:</label>
+<select name="animal_type_id" id="animal_type_id">
   <% for animal_type in @animal_types %>
-  <option value="<%= animal_type %>"><%= animal_type %></option>
+  <option value="<%= animal_type.id %>"><%= animal_type.species %></option>
   <% end %>
 </select>
 
 <label for="admission_date">Date:</label>
-<input type="text" name="admission_date" id="admission_date"/>
+<input type="date" name="admission_date" id="admission_date"/>
 
 <label for="is_adoptable">Ready for adoption?:</label>
 <select name="is_adoptable" id="is_adoptable">

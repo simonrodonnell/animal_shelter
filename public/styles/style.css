@@ -37,12 +37,26 @@ li a:hover {
 }
 
 table {
-  font-size: 12px;
-  border-spacing: 50px 0;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #798674;
   text-align: center;
-  border: 5px;
+  font-size: 14px;
   margin-left: auto;
   margin-right: auto;
+}
+
+tr {
+  background-color: #798674;
+}
+
+td {
+  background-color: #D6DAD5;
+}
+
+thead th:nth-child(1) {
+  width: 10%;
 }
 
 .intro-text {
@@ -57,10 +71,6 @@ table {
   height: 150px;
   border-radius: 10px;
 }
-
-/* .background-image {
-
-} */
 
 .form {
   display: block;
@@ -86,30 +96,6 @@ table {
   border-width: thin;
   border-radius: 10px;
 }
-/*
-.owner-card {
-  display: block;
-  background-color: #D6DAD5;
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px;
-  padding: 10px;
-  border-style: solid;
-  border-width: thin;
-  border-radius: 10px;
-} */
-/*
-.animal-card {
-  display: block;
-  background-color: #D6DAD5;
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px;
-  padding: 10px;
-  border-style: solid;
-  border-width: thin;
-  border-radius: 10px;
-} */
 
 .card-buttons {
   display: block;

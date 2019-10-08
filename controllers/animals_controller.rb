@@ -1,6 +1,7 @@
 require_relative("../models/animal")
 require_relative("../models/owner")
 require_relative("../models/adoption")
+require_relative("../models/animal_type")
 also_reload("../models/*")
 require("pry")
 
@@ -12,7 +13,7 @@ end
 
 #new
 get "/animals/new" do
-  @animal_types = ["Cat", "Dog", "Rabbit", "Frog", "Hamster", "Snake", "Parrot", "Tortoise"]
+  @animal_types = AnimalType.all()
   erb(:"animals/new")
 end
 
@@ -29,12 +30,12 @@ get "/animals/not-ready" do
 end
 
 get "/animals/search" do
-  @animal_types = ["Cat", "Dog", "Rabbit", "Frog", "Hamster", "Snake", "Parrot", "Tortoise"]
+  @animal_types = AnimalType.all()
   erb(:"animals/search")
 end
 
 post "/animals/search/results" do
-  @animals = Animal.find_all_by_species(params['species'])
+  @animals = Animal.find_all_by_species(params['animal_type_id'])
   # binding.pry
   erb( :"animals/index")
 end
@@ -53,33 +54,31 @@ get "/animals/:id/assign" do
 end
 
 post "/animals/:id/assign" do
-  new_owner_id = params['owner_id'].to_i
-  new_animal_id = params['id'].to_i
   new_adoption = Adoption.new({
-    "animal_id" => new_animal_id,
-    "owner_id" => new_owner_id
+    "animal_id" => params['id'].to_i,
+    "owner_id" => params['owner_id'].to_i
     })
   new_adoption.save()
   redirect to "/animals/#{params['id']}"
 end
 
 # delete animal
-post '/animals/:id/delete' do
-  Animal.delete(params[:id])
-  redirect to("/animals")
-end
+  post '/animals/:id/delete' do
+    Animal.delete(params[:id])
+    redirect to("/animals")
+  end
 
-# change healthy/not healthy status
-post '/animals/:id/status' do
-  @animal = Animal.find(params[:id])
-  @animal.status()
-  redirect to "/animals/#{params['id']}"
-end
+  # change healthy/not healthy status
+  post '/animals/:id/status' do
+    @animal = Animal.find(params[:id])
+    @animal.status()
+    redirect to "/animals/#{params['id']}"
+  end
 
-#new
-post "/animals" do
-  Animal.new(params).save
-  redirect to '/animals'
-end
+  #new
+  post "/animals" do
+    Animal.new(params).save
+    redirect to '/animals'
+  end
 
-#edit
+  #edit

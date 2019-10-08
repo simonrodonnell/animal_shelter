@@ -1,8 +1,8 @@
 <form class="" action="/animals/search/results" method="post">
-  <label for="species">Search for species:</label>
-  <select name="species" id="species">
+  <label for="animal_type_id">Search for species:</label>
+  <select name="animal_type_id" id="animal_type_id">
     <% for animal_type in @animal_types %>
-    <option value="<%= animal_type %>"><%= animal_type %></option>
+    <option value="<%= animal_type.id %>"><%= animal_type.species %></option>
     <% end %>
   </select>
   <input type="submit" value="SEARCH">
