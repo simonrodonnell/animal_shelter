@@ -2,7 +2,6 @@ require_relative("../models/animal")
 require_relative("../models/owner")
 require_relative("../models/adoption")
 require_relative("../models/animal_type")
-also_reload("../models/*")
 require("pry")
 
 #index

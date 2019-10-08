@@ -56,12 +56,9 @@ td {
   background-color: #D6DAD5;
 }
 
-
 select {
   text-align: center;
 }
-
-
 
 input[type=text], select {
   width: 100%;
@@ -99,6 +96,7 @@ input[type=submit], .card-buttons {
 }
 
 .index-nav {
+  width: 100%;
   background-color: #D6DAD5;
   border:3px #798674;
 }
