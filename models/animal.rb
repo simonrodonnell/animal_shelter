@@ -1,16 +1,17 @@
 require_relative("../db/sql_runner")
 require_relative("./owner")
+require_relative("./animal_type")
 require("pry")
 
 class Animal
 
-  attr_reader(:id, :name, :age, :species, :admission_date, :is_adoptable)
+  attr_reader(:id, :name, :age, :animal_type_id, :admission_date, :is_adoptable)
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @age = options['age']
-    @species = options['species']
+    @animal_type_id = options['animal_type_id'].to_i
     @admission_date = options['admission_date']
     @is_adoptable = options['is_adoptable']
   end
@@ -20,7 +21,7 @@ class Animal
     (
       name,
       age,
-      species,
+      animal_type_id,
       admission_date,
       is_adoptable
     )
@@ -29,7 +30,7 @@ class Animal
       $1, $2, $3, $4, $5
     )
     RETURNING id"
-    values = [@name, @age, @species, @admission_date, @is_adoptable]
+    values = [@name, @age, @animal_type_id, @admission_date, @is_adoptable]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -50,7 +51,7 @@ class Animal
     (
       name,
       age,
-      species,
+      animal_type_id,
       admission_date,
       is_adoptable,
     ) =
@@ -58,7 +59,7 @@ class Animal
       $1, $2, $3, $4, $5
     )
     WHERE id = $6"
-    values = [@name, @age, @species, @admission_date, @is_adoptable, @id]
+    values = [@name, @age, @animal_type_id, @admission_date, @is_adoptable, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -68,6 +69,13 @@ class Animal
     WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def species()
+    sql = "SELECT * FROM animal_types WHERE id = $1"
+    values = [@animal_type_id]
+    results = SqlRunner.run(sql, values)
+    return AnimalType.new(results.first).species
   end
 
   def self.all()
@@ -112,10 +120,10 @@ class Animal
     return Animal.new( results.first )
   end
 
-  def self.find_all_by_species( species )
+  def self.find_all_by_species( species_id )
     sql = "SELECT * FROM animals
-    WHERE species = $1"
-    values = [species]
+    WHERE animal_type_id = $1"
+    values = [species_id]
     results = SqlRunner.run(sql, values)
     return results.map { |animal| Animal.new( animal ) }
   end

@@ -1,12 +1,45 @@
 require_relative("../models/owner")
 require_relative("../models/animal")
 require_relative("../models/adoption")
+require_relative("../models/animal_type")
 require("pry")
 
 #delete_all
 Adoption.delete_all()
 Animal.delete_all()
 Owner.delete_all()
+AnimalType.delete_all()
+
+#create animal_types
+animal_type1 = AnimalType.new({
+  "species" => "Dog"
+  })
+animal_type2 = AnimalType.new({
+  "species" => "Cat"
+  })
+animal_type3 = AnimalType.new({
+  "species" => "Rabbit"
+  })
+animal_type4 = AnimalType.new({
+  "species" => "Hamster"
+  })
+animal_type5 = AnimalType.new({
+  "species" => "Snake"
+  })
+animal_type6 = AnimalType.new({
+  "species" => "Tortoise"
+  })
+animal_type7 = AnimalType.new({
+  "species" => "Parrot"
+  })
+
+animal_type1.save()
+animal_type2.save()
+animal_type3.save()
+animal_type4.save()
+animal_type5.save()
+animal_type6.save()
+animal_type7.save()
 
 #create owners
 owner1 = Owner.new({
@@ -42,29 +75,29 @@ owner4.save()
 animal1 = Animal.new({
   "name" => "Frank",
   "age" => 3,
-  "species" => "Cat",
-  "admission_date" => "24/05/19",
+  "animal_type_id" => animal_type1.id,
+  "admission_date" => "2019-08-19",
   "is_adoptable" => true
   })
 animal2 = Animal.new({
   "name" => "Alice",
   "age" => 5,
-  "species" => "Dog",
-  "admission_date" => "13/09/18",
+  "animal_type_id" => animal_type2.id,
+  "admission_date" => "2019-08-19",
   "is_adoptable" => true
   })
 animal3 = Animal.new({
   "name" => "Rita",
   "age" => 1,
-  "species" => "Parrot",
-  "admission_date" => "16/05/17",
+  "animal_type_id" => animal_type3.id,
+  "admission_date" => "2019-08-19",
   "is_adoptable" => true
   })
 animal4 = Animal.new({
   "name" => "Hans",
   "age" => 2,
-  "species" => "Rabbit",
-  "admission_date" => "19/06/19",
+  "animal_type_id" => animal_type4.id,
+  "admission_date" => "2019-08-19",
   "is_adoptable" => false
   })
 
