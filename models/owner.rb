@@ -52,6 +52,23 @@ class Owner
     SqlRunner.run(sql, values)
   end
 
+  def update()
+    sql = "UPDATE owners
+    SET
+    (
+      first_name,
+      last_name,
+      age,
+      address
+    ) =
+    (
+      $1, $2, $3, $4
+    )
+    WHERE id = $5"
+    values = [@first_name, @last_name, @age, @address, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.all()
     sql = "SELECT * FROM owners"
     results = SqlRunner.run( sql )

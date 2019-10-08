@@ -20,9 +20,9 @@
   </p>
   <hr>
 
-  <div class="card-buttons">
-    <button type="button" name="button"><a href="/owners/<%= @owner.id %>/assign">ASSIGN PET</a></button>
-    <button type="button" name="button"><a href="">EDIT</a></button>
+  <div>
+    <button class="card-buttons" type="button" name="button"><a href="/owners/<%= @owner.id %>/assign">ASSIGN PET</a></button>
+    <button class="card-buttons" type="button" name="button"><a href="/owners/<%= @owner.id %>/edit">EDIT</a></button>
     <form action="/owners/<%= @owner.id %>/delete" method="POST"><input type="submit" value="DELETE"></form>
   </div>
 

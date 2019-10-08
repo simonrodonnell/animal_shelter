@@ -38,8 +38,9 @@ li a:hover {
 
 table {
   table-layout: fixed;
-  width: 100%;
+  width: 80%;
   border-collapse: collapse;
+  border-spacing: 0;
   border: 1px solid #798674;
   text-align: center;
   font-size: 14px;
@@ -55,8 +56,33 @@ td {
   background-color: #D6DAD5;
 }
 
-thead th:nth-child(1) {
-  width: 10%;
+
+select {
+  text-align: center;
+}
+
+
+
+input[type=text], select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #798674;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit], .card-buttons {
+  width: 100%;
+  background-color: #798674;
+  font-size: 18px;
+  color: #D6DAD5;
+  margin-top: 20px;
+  padding: 15px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .intro-text {
@@ -72,17 +98,29 @@ thead th:nth-child(1) {
   border-radius: 10px;
 }
 
-.form {
-  display: block;
+.index-nav {
   background-color: #D6DAD5;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  border:3px #798674;
 }
 
-.index-nav {
+a:link, .index-nav-link {
+  text-decoration: none;
+}
+
+.index-nav-button {
+  text-decoration: none;
+  background-color: #798674;
+  font-size: 12px;
+  color: #D6DAD5;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.form {
   text-align: center;
-  padding: 10 px;
+  background-color: #D6DAD5;
+  padding: 20px;
 }
 
 .card {
@@ -95,12 +133,6 @@ thead th:nth-child(1) {
   border-style: solid;
   border-width: thin;
   border-radius: 10px;
-}
-
-.card-buttons {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .t {

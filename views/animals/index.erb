@@ -1,10 +1,18 @@
 <h1>ANIMALS</h1>
 <hr>
-<div class="index-nav"">
-  <button type="button" name="button 1"><a href="/animals/new">NEW ANIMAL</a></button>
-  <button type="button" name="button 2"><a href="/animals/ready">READY</a></button>
-  <button type="button" name="button 3"><a href="/animals/not-ready">NOT READY</a></button>
-  <button type="button" name="button 4"><a href="/animals/search">SEARCH</a></button>
+<div class="index-nav">
+  <button class="index-nav-button" type="button" name="button 1">
+    <a href="/animals/new" class="index-nav-link">NEW ANIMAL</a>
+  </button>
+  <button class="index-nav-button" type="button" name="button 2">
+    <a href="/animals/ready" class="index-nav-link">READY</a>
+  </button>
+  <button class="index-nav-button" type="button" name="button 3">
+    <a href="/animals/not-ready" class="index-nav-link">NOT READY</a>
+  </button>
+  <button class="index-nav-button" type="button" name="button 4">
+    <a href="/animals/search" class="index-nav-link">SEARCH</a>
+  </button>
 </div>
 
 <p></p>
@@ -12,22 +20,22 @@
 <p></p>
 <table>
     <tr>
+      <th>Status</th>
       <th>Name</th>
       <th>Age</th>
       <th>Species</th>
-      <th>Admission date</th>
-      <th>Healthy/Trained</th>
+      <th>Admitted</th>
       <th>Owner</th>
     </tr>
     <% for animal in @animals %>
     <tr>
+      <td>
+        <span class="<%= animal.is_adoptable.to_s %>"></span>
+      </td>
       <td><a href="/animals/<%= animal.id %>"><%= animal.name %></a></td>
       <td><%= animal.age %></td>
       <td><%= animal.species %></td>
       <td><%= animal.admission_date %></td>
-      <td>
-        <span class="<%= animal.is_adoptable.to_s %>"></span>
-      </td>
       <td>
           <% if animal.owner.first.nil? == false %>
           <%= animal.owner.first.pretty_name %>

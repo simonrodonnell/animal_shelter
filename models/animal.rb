@@ -53,7 +53,7 @@ class Animal
       age,
       animal_type_id,
       admission_date,
-      is_adoptable,
+      is_adoptable
     ) =
     (
       $1, $2, $3, $4, $5

@@ -62,23 +62,34 @@ post "/animals/:id/assign" do
   redirect to "/animals/#{params['id']}"
 end
 
+# change healthy/not healthy status
+post '/animals/:id/status' do
+  @animal = Animal.find(params[:id])
+  @animal.status()
+  redirect to "/animals/#{params['id']}"
+end
+
+#new
+post "/animals" do
+  Animal.new(params).save
+  redirect to '/animals'
+end
+
+#edit
+get "/animals/:id/edit" do
+  @animal_types = AnimalType.all()
+  @animal = Animal.find(params['id'])
+  erb(:"animals/edit")
+end
+
+post "/animals/:id" do
+  animal = Animal.new(params)
+  animal.update
+  redirect to "animals/#{params["id"]}"
+end
+
 # delete animal
-  post '/animals/:id/delete' do
-    Animal.delete(params[:id])
-    redirect to("/animals")
-  end
-
-  # change healthy/not healthy status
-  post '/animals/:id/status' do
-    @animal = Animal.find(params[:id])
-    @animal.status()
-    redirect to "/animals/#{params['id']}"
-  end
-
-  #new
-  post "/animals" do
-    Animal.new(params).save
-    redirect to '/animals'
-  end
-
-  #edit
+post '/animals/:id/delete' do
+  Animal.delete(params[:id])
+  redirect to("/animals")
+end

@@ -19,9 +19,9 @@
     </span>
   </p>
   <hr>
-  <div class="card-buttons">
-    <button type="button" name="button"><a href="/animals/<%= @animal.id %>/assign">ASSIGN OWNER</a></button>
-    <button type="button" name="button"><a href="">EDIT</a></button>
+  <div>
+    <button class="card-buttons" type="button" name="button"><a href="/animals/<%= @animal.id %>/assign">ASSIGN OWNER</a></button>
+    <button class="card-buttons" type="button" name="button"><a href="/animals/<%= @animal.id %>/edit">EDIT</a></button>
     <form action="/animals/<%= @animal.id %>/delete" method="POST"><input type="submit" value="DELETE"></form>
     <form action="/animals/<%= @animal.id %>/status" method="POST"><input type="submit"
     <% if @animal.is_adoptable == "f" %>

@@ -25,11 +25,9 @@ get "/owners/:id/assign" do
 end
 
 post "/owners/:id/assign" do
-  new_animal_id = params['animal_id'].to_i
-  new_owner_id = params['id'].to_i
   new_adoption = Adoption.new({
-    "animal_id" => new_animal_id,
-    "owner_id" => new_owner_id
+    "animal_id" => params['animal_id'].to_i,
+    "owner_id" => params['id'].to_i
     })
   new_adoption.save()
   redirect to "/owners/#{params['id']}"
@@ -49,3 +47,13 @@ post '/owners/:id/delete' do
 end
 
 #edit
+get "/owners/:id/edit" do
+  @owner = Owner.find(params['id'])
+  erb(:"owners/edit")
+end
+
+post "/owners/:id" do
+  owner = Owner.new(params)
+  owner.update
+  redirect to "owners/#{params["id"]}"
+end
