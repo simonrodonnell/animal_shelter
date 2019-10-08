@@ -9,18 +9,16 @@ get "/adoptions" do
   erb( :"adoptions/index" )
 end
 
-get '/adoptions/assign' do
+get '/adoptions/new' do
   @owners = Owner.all
   @animals = Animal.available
-  erb(:"adoptions/assign")
+  erb(:"adoptions/new")
 end
 
-post '/adoptions/assign' do
-  new_owner_id = params['owner_id'].to_i
-  new_animal_id = params['animal_id'].to_i
+post '/adoptions' do
   new_adoption = Adoption.new({
-    "animal_id" => new_animal_id,
-    "owner_id" => new_owner_id
+    "animal_id" => params['owner_id'].to_i,
+    "owner_id" => params['animal_id'].to_i
     })
   new_adoption.save()
   redirect to "/adoptions"
