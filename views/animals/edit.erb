@@ -1,7 +1,9 @@
-<h3>Edit Animal</h3>
+
 
 <form class="form" action="/animals/<%= @animal.id %>" method="post">
 
+  <h3>Edit Details</h3>
+  <hr>
   <label for="name">Name:</label>
   <input type="text" name="name" id="name" value="<%= @animal.name %>"/>
 
@@ -29,7 +31,7 @@
     <option value=true>Yes</option>
     <option value=false>No</option>
   </select>
-
+<hr>
   <input type="submit" value="Update Animal"/>
 
 </form>

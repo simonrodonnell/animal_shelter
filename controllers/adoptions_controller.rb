@@ -16,8 +16,8 @@ end
 
 post '/adoptions' do
   new_adoption = Adoption.new({
-    "animal_id" => params['owner_id'].to_i,
-    "owner_id" => params['animal_id'].to_i
+    "animal_id" => params['animal_id'].to_i,
+    "owner_id" => params['owner_id'].to_i
     })
   new_adoption.save()
   redirect to "/adoptions"
