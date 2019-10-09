@@ -5,10 +5,9 @@
   <h3>Adoption #<%= @adoption.id %></h3>
   <hr>
   <p><b>ANIMAL: </b><%= @adoption.animal.name %></p>
+  <img src="<%= @adoption.animal.photo %>" alt="Animal Photo" class="adoption-animal-photo">
   <p><b>SPECIES: </b><%= @adoption.animal.species %></p>
   <p><b>AGE: </b><%= @adoption.animal.age %></p>
-  <p><b>PHOTO: </b></p>
-  <img src="<%= @adoption.animal.photo %>" alt="Animal Photo" class="animal-photo">
   <hr>
   <p><b>OWNER: </b><%= @adoption.owner.pretty_name %></p>
   <p><b>ADDRESS: </b><%= @adoption.owner.address %></p>

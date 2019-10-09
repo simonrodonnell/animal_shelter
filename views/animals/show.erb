@@ -3,7 +3,7 @@
 <p></p>
 <div class="card animal-card">
   <h3><%= @animal.name %></h3>
-  <hr>
+  <img src="<%= @animal.photo %>" alt="Animal Photo" class="animal-photo">
   <p>
     <b>SPECIES: </b><%= @animal.species %>
   </p>
@@ -18,12 +18,14 @@
     <span class="<%= @animal.is_adoptable.to_s %>">
     </span>
   </p>
-  <p><b>PHOTO: </b></p>
-  <img src="<%= @animal.photo %>" alt="Animal Photo" class="animal-photo">
   <hr>
   <div>
-    <button class="card-buttons" type="button" name="button"><a href="/animals/<%= @animal.id %>/assign">ASSIGN OWNER</a></button>
-    <button class="card-buttons" type="button" name="button"><a href="/animals/<%= @animal.id %>/edit">EDIT</a></button>
+    <button class="card-buttons" type="button" name="button">
+      <a href="/animals/<%= @animal.id %>/assign" class="card-link">ASSIGN OWNER</a>
+    </button>
+    <button class="card-buttons" type="button" name="button">
+      <a href="/animals/<%= @animal.id %>/edit" class="card-link">EDIT</a>
+    </button>
     <form action="/animals/<%= @animal.id %>/delete" method="POST"><input type="submit" value="DELETE"></form>
     <form action="/animals/<%= @animal.id %>/status" method="POST"><input type="submit"
     <% if @animal.is_adoptable == "f" %>
