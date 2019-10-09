@@ -114,6 +114,7 @@ input[type=submit], .card-buttons {
   font-size: 12px;
   color: #D6DAD5;
   cursor: pointer;
+  border: solid thin #606B5C;
 }
 
 .form {
@@ -137,6 +138,14 @@ input[type=submit], .card-buttons {
   border-radius: 10px;
 }
 
+.animal-card-status {
+  display: flex;
+  position: absolute;
+  top: 116px;
+  right: 74px;
+  margin-left: auto;
+  height:100px;
+}
 .animal-photo {
   display: flex;
   position: absolute;
