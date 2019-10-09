@@ -77,28 +77,32 @@ animal1 = Animal.new({
   "age" => 3,
   "animal_type_id" => animal_type1.id,
   "admission_date" => "2019-08-19",
-  "is_adoptable" => true
+  "is_adoptable" => true,
+  "photo" => "/images/dog1.jpg"
   })
 animal2 = Animal.new({
   "name" => "Alice",
   "age" => 5,
   "animal_type_id" => animal_type2.id,
   "admission_date" => "2019-08-19",
-  "is_adoptable" => true
+  "is_adoptable" => true,
+  "photo" => "/images/cat1.jpg"
   })
 animal3 = Animal.new({
   "name" => "Rita",
   "age" => 1,
   "animal_type_id" => animal_type3.id,
   "admission_date" => "2019-08-19",
-  "is_adoptable" => true
+  "is_adoptable" => true,
+  "photo" => "/images/rabbit1.jpg"
   })
 animal4 = Animal.new({
   "name" => "Hans",
   "age" => 2,
   "animal_type_id" => animal_type4.id,
   "admission_date" => "2019-08-19",
-  "is_adoptable" => false
+  "is_adoptable" => false,
+  "photo" => "/images/hamster1.jpg"
   })
 
 animal1.save()

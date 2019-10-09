@@ -20,6 +20,9 @@
   <label for="admission_date">Date:</label>
   <input type="date" name="admission_date" id="admission_date" value="<%= @animal.admission_date %>"/>
 
+  <label for="photo">Photo Filepath:</label>
+  <input type="text" name="photo" id="photo" value="<%= @animal.photo %>"/>
+
   <label for="is_adoptable">Ready for adoption?:</label>
   <select name="is_adoptable" id="is_adoptable" selected=
   <% if @animal.is_adoptable == "t" %>

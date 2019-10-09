@@ -5,7 +5,7 @@ require("pry")
 
 class Animal
 
-  attr_reader(:id, :name, :age, :animal_type_id, :admission_date, :is_adoptable)
+  attr_reader(:id, :name, :age, :animal_type_id, :admission_date, :is_adoptable, :photo)
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
@@ -14,6 +14,7 @@ class Animal
     @animal_type_id = options['animal_type_id'].to_i
     @admission_date = options['admission_date']
     @is_adoptable = options['is_adoptable']
+    @photo = options['photo']
   end
 
   def save()
@@ -23,14 +24,15 @@ class Animal
       age,
       animal_type_id,
       admission_date,
-      is_adoptable
+      is_adoptable,
+      photo
     )
     VALUES
     (
-      $1, $2, $3, $4, $5
+      $1, $2, $3, $4, $5, $6
     )
     RETURNING id"
-    values = [@name, @age, @animal_type_id, @admission_date, @is_adoptable]
+    values = [@name, @age, @animal_type_id, @admission_date, @is_adoptable, @photo]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -53,13 +55,14 @@ class Animal
       age,
       animal_type_id,
       admission_date,
-      is_adoptable
+      is_adoptable,
+      photo
     ) =
     (
-      $1, $2, $3, $4, $5
+      $1, $2, $3, $4, $5, $6
     )
-    WHERE id = $6"
-    values = [@name, @age, @animal_type_id, @admission_date, @is_adoptable, @id]
+    WHERE id = $7"
+    values = [@name, @age, @animal_type_id, @admission_date, @is_adoptable, @photo, @id]
     SqlRunner.run(sql, values)
   end
 

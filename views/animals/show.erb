@@ -18,6 +18,8 @@
     <span class="<%= @animal.is_adoptable.to_s %>">
     </span>
   </p>
+  <p><b>PHOTO: </b></p>
+  <img src="<%= @animal.photo %>" alt="Animal Photo" class="animal-photo">
   <hr>
   <div>
     <button class="card-buttons" type="button" name="button"><a href="/animals/<%= @animal.id %>/assign">ASSIGN OWNER</a></button>

@@ -25,6 +25,7 @@ CREATE TABLE animals
   age INT2,
   admission_date DATE,
   is_adoptable BOOLEAN,
+  photo VARCHAR(255),
   animal_type_id INT8 REFERENCES animal_types(id) ON DELETE CASCADE
 );
 

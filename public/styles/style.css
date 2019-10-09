@@ -101,7 +101,7 @@ input[type=submit], .card-buttons {
   align-items: center;
 }
 
-a:link, .index-nav-link {
+.index-nav-link {
   text-decoration: none;
   color: #D6DAD5;
 }
